@@ -1,12 +1,15 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
+import Layout from "./components/general/layout";
+import { allRoutes } from "./Routes";
+
+const router = createBrowserRouter(allRoutes);
 
 function App() {
   return (
-    <>
-      <div>
-        <h1 className="text-red-500">HELLO WORLD</h1>
-      </div>
-    </>
+    <Layout>
+      <RouterProvider router={router} />
+    </Layout>
   );
 }
 
