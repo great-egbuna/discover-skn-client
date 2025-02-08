@@ -55,7 +55,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     (async () => {
       try {
         const me: User = await authService.me();
-        // console.log("me: ", me)
+        /*  console.log("me: ", me); */
 
         setUser(me ?? {});
         setAuthenticatedUser(me);

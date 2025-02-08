@@ -50,12 +50,19 @@ const Login: React.FC = () => {
       };
 
       const res: any = await authService.signUp(payload);
+
+      if (res instanceof Error) {
+        setLoading(false);
+
+        alert("Request Failed");
+
+        return;
+      }
+
       setLoading(false);
 
       if (res?.token)
         authToken.set({ token: res?.token, expiresAt: res?.expiresAt });
-
-      console.log("res", res.token.toString());
 
       saveUser(res?.user);
       navigate("/onboarding");

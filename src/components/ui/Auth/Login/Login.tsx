@@ -32,12 +32,18 @@ const SignUp: React.FC = () => {
       setLoading(true);
 
       const payload = {
-        name: `${values?.firstName} ${values?.lastName}`,
         email: values?.email,
         password: values?.password,
       };
 
-      const res: any = await authService.signUp(payload);
+      const res: any = await authService.login(payload);
+
+      if (res instanceof Error) {
+        alert("Request Failed");
+        setLoading(false);
+
+        return;
+      }
       setLoading(false);
 
       if (res?.token)
