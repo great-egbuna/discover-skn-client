@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
         <FullScreenLoader />
       ) : (
         <div className="w-full flex flex-col gap-4 p-4">
-          <DashHeader name="Dominic" />
+          <DashHeader  />
 
           <SearchBar />
 
